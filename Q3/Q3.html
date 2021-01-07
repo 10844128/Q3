@@ -1,0 +1,299 @@
+<html>
+   <body>    
+   <style>
+   .bottom{top:-600px;}
+   .bottomm{top:-1000px;}
+   </style>
+		  
+		<div>
+	<input type="radio" id="1" name="11" value="111">
+	<label for="1">經濟成長率</label><br>
+	<input type="radio" id="2" name="22" value="222">
+	<label for="2">失業率</label><br>
+	<input type="radio" id="3" name="33" value="333">
+	<label for="3">物價上漲率</label>
+	<button onclick="clickk()">確定</button>
+	<div class="">
+	
+	<BR> 根據圖表我們可以看出2008年因為金融海嘯的關係經濟成長率來到了歷年來的新低，Q3Q4的財報也間接地影響到了2008年的物價上漲率，由於物價創新高<BR>
+	  2009年的物價上漲率野報復性的反彈，我們可以發現當經濟衰退時隔年的失業率來到了歷年來的新高。換句話說我們常說:股市先行，市場會最先反應當時的趨勢，<BR>
+	  又有一句話是著麼說的:股票市場裡頭沒有新鮮事，2008年的金融海嘯也能套用在2020疫情爆發的這一年，今年台灣因為疫情的關係在3月份時，股價來到了歷年新低<BR>
+	  但因為市場整體看好台灣，加上台灣防疫做得相當落實，相對國外台完反而是在這一波的疫情下成了最大的獲利者，在今年整個市場逐間回穩台股也創新高，突破14000點<BR>
+		有此可知整體市場是看好2021年的台灣，相信在疫情的衝擊對市場影響在沒有那麼巨大之時，明年的台灣整體經濟都會有所提升。<BR>
+
+	  </div>
+	</div>
+	
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+	  <canvas id="myChart" width="1300" height="400"></canvas>
+	  <canvas id="myChart1" width="1300" height="400" class ="bottom"></canvas>
+	  <canvas id="myChart2" width="1300" height="400" class ="bottomm"></canvas>
+        <script>
+		
+	  alert("please choose the diagram you want.");
+			var a = new Array(3);
+			for(let i =0;i<3;i++)
+				a[i] =0;
+			function clickk()
+			{
+			
+				for(let i =0;i<3;i++){
+					if(document.getElementById((i+1)).checked== true)
+					{
+						alert("find");
+						a[i] =1;
+					}
+				}
+				var data = [
+					{"Time": "1999Q1", "Volume":6.26},
+					{"Time": "1999Q2", "Volume": 7.24},
+					{"Time": "1999Q3", "Volume": 5.85},
+					{"Time": "1999Q4", "Volume": 7.53},
+					{"Time": "2000Q1", "Volume": 6.02},
+					{"Time": "2000Q2", "Volume": 6.27},
+					{"Time": "2000Q3", "Volume": 7.19},
+					{"Time": "2000Q4", "Volume": 5.78},
+					{"Time": "2001Q1", "Volume": 1.45},
+					{"Time": "2001Q2", "Volume": -2.55},
+					{"Time": "2001Q3", "Volume": -4.06},
+					{"Time": "2001Q4", "Volume": -0.30},
+					{"Time": "2002Q1", "Volume": 1.82},
+					{"Time": "2002Q2", "Volume": 6.75},
+					{"Time": "2002Q3", "Volume": 7.02},
+					{"Time": "2002Q4", "Volume": 6.22},
+					{"Time": "2003Q1", "Volume": 5.17},
+					{"Time": "2003Q2", "Volume": -1.15},
+					{"Time": "2003Q3", "Volume": 5.41},
+					{"Time": "2003Q4", "Volume": 7.26},
+					{"Time": "2004Q1", "Volume": 6.93},
+					{"Time": "2004Q2", "Volume": 10.80},
+					{"Time": "2004Q3", "Volume": 7.05},
+					{"Time": "2004Q4", "Volume": 3.60},
+					{"Time": "2005Q1", "Volume": 3.76},
+					{"Time": "2005Q2", "Volume": 4.82},
+					{"Time": "2005Q3", "Volume": 5.06},
+					{"Time": "2005Q4", "Volume": 7.63},
+					{"Time": "2006Q1", "Volume": 6.05},
+					{"Time": "2006Q2", "Volume": 5.64},
+					{"Time": "2006Q3", "Volume": 7.19},
+					{"Time": "2006Q4", "Volume": 4.33},
+					{"Time": "2007Q1", "Volume": 5.64},
+					{"Time": "2007Q2", "Volume": 7.12},
+					{"Time": "2007Q3", "Volume": 7.97},
+					{"Time": "2007Q4", "Volume": 6.58},
+					{"Time": "2007Q1", "Volume": 7.66},
+					{"Time": "2008Q1", "Volume": 5.65},
+					{"Time": "2008Q2", "Volume": -1.39},
+					{"Time": "2008Q3", "Volume": -7.36},
+					{"Time": "2008Q4", "Volume": -7.88},
+					{"Time": "2009Q1", "Volume": -5.92},
+					{"Time": "2009Q2", "Volume": -1.13},
+					{"Time": "2009Q3", "Volume": 8.58},
+					{"Time": "2009Q4", "Volume": 11.55},
+					{"Time": "2010Q1", "Volume": 12.02},
+					{"Time": "2010Q2", "Volume": 11.54},
+					{"Time": "2010Q3", "Volume": 6.34},
+					{"Time": "2010Q4", "Volume": 6.72},
+					{"Time": "2011Q1", "Volume": 4.16},
+					{"Time": "2011Q2", "Volume": 3.28},
+					{"Time": "2011Q3", "Volume": 0.89},
+					{"Time": "2011Q4", "Volume": 1.09},
+					{"Time": "2012Q1", "Volume": 1.04},
+					{"Time": "2012Q2", "Volume": 2.18},
+					{"Time": "2012Q3", "Volume": 4.48},
+					{"Time": "2012Q4", "Volume": 1.50},
+					{"Time": "2013Q1", "Volume": 1.50},
+					{"Time": "2013Q2", "Volume": 2.68},
+					{"Time": "2013Q3", "Volume": 1.95},
+					{"Time": "2013Q4", "Volume": 3.73},
+					{"Time": "2014Q1", "Volume": 4.69},
+					{"Time": "2014Q2", "Volume": 4.92},
+					{"Time": "2014Q3", "Volume": 4.90},
+					{"Time": "2014Q4", "Volume": 4.38},
+					{"Time": "2015Q1", "Volume": 4.80},
+					{"Time": "2015Q1", "Volume": 1.89},
+					{"Time": "2015Q2", "Volume": -0.28},
+					{"Time": "2015Q3", "Volume": -0.20},
+					{"Time": "2015Q4", "Volume": -0.09},
+					{"Time": "2016Q1", "Volume": 1.69},
+					{"Time": "2016Q2", "Volume": 3.00},
+					{"Time": "2016Q3", "Volume": 3.92},
+					{"Time": "2016Q4", "Volume": 3.24},
+					{"Time": "2017Q1", "Volume": 2.64},
+					{"Time": "2017Q2", "Volume": 3.61},
+					{"Time": "2017Q3", "Volume": 3.71},
+					{"Time": "2018Q4", "Volume": 3.41},
+					{"Time": "2019Q1", "Volume": 3.442},
+					{"Time": "2019Q1", "Volume": 2.29},
+					{"Time": "2019Q2", "Volume": 2.12},
+					{"Time": "2019Q3", "Volume": 1.88},
+					{"Time": "2019Q4", "Volume": 2.87},
+					];
+					var data1 = [
+					{"Time": "1999", "Volume":2.92},
+					{"Time": "2000", "Volume": 2.99},
+					{"Time": "2001", "Volume": 4.57},
+					{"Time": "2002", "Volume": 5.17},
+					{"Time": "2003", "Volume": 4.99},
+					{"Time": "2004", "Volume": 4.44},
+					{"Time": "2005", "Volume": 4.13},
+					{"Time": "2006", "Volume": 3.91},
+					{"Time": "2007", "Volume": 3.91},
+					{"Time": "2008", "Volume": 4.14},
+					{"Time": "2009", "Volume": 5.85},
+					{"Time": "2010", "Volume": 5.21},
+					{"Time": "2011", "Volume": 4.39},
+					{"Time": "2012", "Volume": 4.24},
+					{"Time": "2013", "Volume": 4.28},
+					{"Time": "2014", "Volume": 3.96},
+					{"Time": "2015", "Volume": 3.78},
+					{"Time": "2016", "Volume": 3.92},
+					{"Time": "2017", "Volume": 3.76},
+					{"Time": "2018", "Volume":3.71},
+					{"Time": "2019", "Volume": 3.73},
+					];
+					var data2 = [
+					{"Time": "1999", "Volume":0.18},
+					{"Time": "2000", "Volume": 1.26},
+					{"Time": "2001", "Volume": -0.01},
+					{"Time": "2002", "Volume": -0.20},
+					{"Time": "2003", "Volume": -0.28},
+					{"Time": "2004", "Volume": 1.61},
+					{"Time": "2005", "Volume": 2.31},
+					{"Time": "2006", "Volume": 0.6},
+					{"Time": "2007", "Volume": 1.8},
+					{"Time": "2008", "Volume": 3.52},
+					{"Time": "2009", "Volume": -0.87},
+					{"Time": "2010", "Volume": 0.97},
+					{"Time": "2011", "Volume": 1.42},
+					{"Time": "2012", "Volume": 1.93},
+					{"Time": "2013", "Volume": 0.79},
+					{"Time": "2014", "Volume": 1.2},
+					{"Time": "2015", "Volume": -0.3},
+					{"Time": "2016", "Volume": 1.39},
+					{"Time": "2017", "Volume": 0.62},
+					{"Time": "2018", "Volume":1.35},
+					{"Time": "2019", "Volume": 0.56},
+					];
+          
+		  
+		      
+	if(a[0]==1){
+	var ctx = document.getElementById('myChart').getContext("2d");
+  var chart = new Chart(ctx, 
+  {
+    type: "line",
+    data: {
+      labels: data.map(x=>x.Time),
+      datasets: [{
+        label: "經濟成長率",
+        data: data.map(x=>x.Volume),
+        // Line
+        lineTension: 0,
+        backgroundColor: "#FF5376",
+        borderColor: "#FF5376",
+        fill: false,
+        borderWidth: 2,
+        // Point
+        pointRadius: 5,
+        pointHoverRadius: 7,
+      }]
+    },
+    options:{
+      title:{
+        display: true,
+        text: "經濟成長率:",
+        position: "bottom",
+        fontSize: 24,
+        fontStyle: "normal",
+        fontFamily: "Century Gothic"
+      },
+      legend:{
+        display: false
+      },
+      responsive: false
+    }
+  });
+  }
+  if(a[1]==1){
+   var ctx1 = document.getElementById('myChart1').getContext("2d");
+  var chart = new Chart(ctx1, 
+  {
+    type: "line",
+    data: {
+      labels: data1.map(x=>x.Time),
+      datasets: [{
+        label: "失業率",
+        data: data1.map(x=>x.Volume),
+        // Line
+        lineTension: 0,
+        backgroundColor: "black",
+        borderColor: "red",
+        fill: false,
+        borderWidth: 2,
+        // Point
+        pointRadius: 5,
+        pointHoverRadius: 7,
+      }]
+    },
+    options:{
+      title:{
+        display: true,
+        text: "失業率",
+        position: "bottom",
+        fontSize: 24,
+        fontStyle: "normal",
+        fontFamily: "Century Gothic"
+      },
+      legend:{
+        display: false
+      },
+      responsive: false
+    }
+  });
+  }
+  if(a[2]==1){
+  var ctx2 = document.getElementById('myChart2').getContext("2d");
+  var chart = new Chart(ctx2, 
+  {
+    type: "line",
+    data: {
+      labels: data2.map(x=>x.Time),
+      datasets: [{
+        label: "物價上漲率",
+        data: data2.map(x=>x.Volume),
+        // Line
+        lineTension: 0,
+        backgroundColor: "green",
+        borderColor: "blue",
+        fill: false,
+        borderWidth: 2,
+        // Point
+        pointRadius: 5,
+        pointHoverRadius: 7,
+      }]
+    },
+    options:{
+      title:{
+        display: true,
+        text: "物價上漲率",
+        position: "bottom",
+        fontSize: 24,
+        fontStyle: "normal",
+        fontFamily: "Century Gothic"
+      },
+      legend:{
+        display: false
+      },
+      responsive: false
+    }
+  });
+  }
+  
+			}
+				
+  
+       </script> 
+
+ </body>
+</html>
